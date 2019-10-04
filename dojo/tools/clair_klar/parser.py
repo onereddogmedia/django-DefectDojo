@@ -80,6 +80,8 @@ def get_item(item_node, test):
     if 'Link' in item_node:
         link = item_node['Link']
 
+    vuln_key = item_node['Name']+item_node['FeatureName']+item_node['FeatureVersion']
+
     finding = Finding(title=item_node['Name'] + " - " + "(" + item_node['FeatureName'] + ", " + item_node['FeatureVersion'] + ")",
                       test=test,
                       severity=severity,
@@ -93,6 +95,9 @@ def get_item(item_node, test):
                       out_of_scope=False,
                       mitigated=None,
                       cwe=1035,  # Vulnerable Third Party Component
-                      impact="No impact provided")
+                      impact="No impact provided",
+                      static_finding=True,
+                      file_path="local",
+                      unique_id_from_tool=vuln_key)
 
     return finding
