@@ -80,7 +80,8 @@ def get_item(item_node, test):
     if 'Link' in item_node:
         link = item_node['Link']
 
-    vuln_key = item_node['Name']+item_node['FeatureName']+item_node['FeatureVersion']
+    vuln_key = item_node['Name'] + item_node['FeatureName'] + \
+        item_node['FeatureVersion'] + item_node['FeatureVersion']
 
     finding = Finding(title=item_node['Name'] + " - " + "(" + item_node['FeatureName'] + ", " + item_node['FeatureVersion'] + ")",
                       test=test,

@@ -97,6 +97,10 @@ def get_item(vulnerability, test):
     else:
         references = "Refer to the description above for references."
 
+    vuln_key = str(cve) + str(cwe) + vulnerability['from'][0] + \
+        vulnerability['title'] + vulnerability['packageName'] + \
+        vulnerability['version']
+    
     # create the finding object
     finding = Finding(
         title=vulnerability['from'][0] + ": " + vulnerability['title'] + " - " + "(" + vulnerability['packageName'] + ", " + vulnerability['version'] + ")",
@@ -117,7 +121,10 @@ def get_item(vulnerability, test):
         duplicate=False,
         out_of_scope=False,
         mitigated=None,
-        impact=severity)
+        impact=severity,
+        static_finding=True,
+        file_path="local",
+        unique_id_from_tool=vuln_key)
 
     finding.description = finding.description.strip()
 
