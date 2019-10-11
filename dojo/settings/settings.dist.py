@@ -526,7 +526,7 @@ CELERY_BEAT_SCHEDULE = {
 HASHCODE_FIELDS_PER_SCANNER = {
     'Checkmarx Scan': ['title', 'cwe', 'file_path', 'description'],
     'Clair Klar Scan': ['title', 'cwe', 'description'],
-    'Snyk Scan': ['title', 'cwe', 'description']
+    'Snyk Scan': ['unique_id_from_tool']
 }
 
 # List of fields that are known to be usable in hash_code computation)

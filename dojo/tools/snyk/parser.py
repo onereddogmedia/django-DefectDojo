@@ -97,7 +97,7 @@ def get_item(vulnerability, test):
     else:
         references = "Refer to the description above for references."
 
-    vuln_key = str(cve) + str(cwe).join(vulnerability['from']) + \
+    vuln_key = str(cve) + str(cwe) + ','.join(vulnerability['from']) + \
         vulnerability['title'] + vulnerability['packageName'] + \
         vulnerability['version']
     
